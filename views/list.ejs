@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="h_box">
+        <h1>It's a <%= KindOfDay %>.</h1>
+    </div>
+    <div class="item2">
+        <% newitems.forEach(function(item){ %>
+                <form action="/delete" method="post">
+                    <input type="checkbox" name="checkbox" value="<%= item._id %>" onchange="this.form.submit()">
+                    <%= item.name %></p>
+                    <input type="hidden" name="listname" value="<%=KindOfDay%>">
+                </form>
+        <% }) %>
+    </div>
+    
+    <div class="item">
+        <% for(var i=0;i<newitems.length;i++) { %>
+            <p><input type="checkbox">
+            <%= newitems[i].name %></p>
+        <% } %>
+        <form action="/" method="post">
+            <input type="text" name="item" autocomplete="off" placeholder="Add Item">
+            <button type="submit" name="list" value="<%= KindOfDay %>">+</button>
+        </form>
+    </div>
+</body>
+</html>
